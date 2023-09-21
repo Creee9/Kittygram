@@ -2,7 +2,7 @@ FROM python:3.9
 
 WORKDIR /app
 # Потом раскомитить!
-# ENV PIP_ROOT_USER_ACTION=ignore
+ENV PIP_ROOT_USER_ACTION=ignore
 
 RUN pip install gunicorn==20.1.0
 
