@@ -1,15 +1,16 @@
 FROM python:3.9
 
 WORKDIR /app
-# Потом раскомитить!
+
 ENV PIP_ROOT_USER_ACTION=ignore
 
 RUN pip install gunicorn==20.1.0
 
-COPY requirements.txt .
+# COPY requirements.txt .
+COPY . .
 
 RUN pip install -r requirements.txt --no-cache-dir
 
 COPY . .
-# Потом закомитить это!
+
 CMD ["gunicorn", "--bind", "0.0.0.0:9000", "kittygram_backend.wsgi"]
