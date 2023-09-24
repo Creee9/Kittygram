@@ -6,8 +6,6 @@ ENV PIP_ROOT_USER_ACTION=ignore
 
 RUN pip install gunicorn==20.1.0
 
-ENV PIP_ROOT_USER_ACTION=ignore
-
 COPY requirements.txt .
 
 RUN pip install -r requirements.txt --no-cache-dir
