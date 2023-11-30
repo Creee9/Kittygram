@@ -31,14 +31,14 @@ Kittygram - приложение, где пользователи публику
 
 - Клонируйте репозиторий с проектом на свой компьютер:
 ```bash
-git clone https://github.com/Creee9/foodgram.git
+git clone https://github.com/Creee9/Kittygram.git
 ```
 
 - Установить и активировать виртуальное окружение:
 ```bash
 python -m venv venv
 source venv/Scripts/activate
-# for Mac:
+# or
 # source venv/bin/activate
 ```
 
@@ -64,24 +64,24 @@ docker-compose exec backend python manage.py createsuperuser
 docker-compose exec backend python manage.py collectstatic
 ```
 
-- Заполните базу предоставленными данными:
+- Скопируйте файлы статики в /static/static/ backend-контейнера :
 ```bash
-docker-compose exec backend python manage.py add_ingredients_from_data
+docker compose exec backend cp -r /app/collected_static/. /static/static/
+# При выполнении команды на Windows может возникнуть ошибка "The system cannot find the file specified"
+# В таком случае выполните команду "cp -r /app/collected_static/. /static/static/"
+# через терменал backend-контейнера в десктоп-приложении Docker
 ```
-- Для корректного создания рецепта, необходимо создать несколько тегов в базе через админ-панель.
-
 
 
 ### Основные адреса: 
 | Адрес                 | Описание |
 |:----------------------|:---------|
-| 127.0.0.1            | Главная страница |
-| 127.0.0.1/admin/     | Для входа в панель администратора |
-| 127.0.0.1/api/docs/  | Описание работы API |
+| 127.0.0.1:9000            | Главная страница |
+| 127.0.0.1:9000/admin/     | Для входа в панель администратора |
+| 127.0.0.1:9000/api/       | API |
 
-##Адрес сервера
-https://foodgram101.hopto.org/
 
 ## Автор:
 Беликов Тимур<br>
 belikov.t9@yandex.ru
+Telegram: @belikovtimur
