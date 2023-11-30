@@ -84,4 +84,5 @@ docker compose exec backend cp -r /app/collected_static/. /static/static/
 ## Автор:
 Беликов Тимур<br>
 belikov.t9@yandex.ru
+
 Telegram: @belikovtimur
